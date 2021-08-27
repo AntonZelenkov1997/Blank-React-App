@@ -128,3 +128,24 @@ Create tsconfig.json. Add this:
 }
 ```
 
+For troubleshooting with ```styleName``` attribute on typescript you need:
+
+Install types for ```react-css-modules```
+```sh
+yarn add @types/react-css-modules -D
+```
+
+Add file to your project, named react-css-module.d.ts
+```sh
+declare namespace React {
+  interface Attributes {
+    styleName?: string | undefined;
+  }
+  interface HTMLAttributes<T> {
+    styleName?: string | undefined;
+  }
+  interface SVGAttributes<T> {
+    styleName?: string | undefined;
+  }
+}
+```
