@@ -43,7 +43,16 @@ module.exports = {
                     "sass-loader"
                 ],
             },
-            { test: /\.tsx?$/, loader: "ts-loader" }
+            {
+                test: /\.tsx?$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                    },
+                ],
+
+            }
         ],
     },
     plugins: [
@@ -55,3 +64,20 @@ module.exports = {
         extensions: ['', '.js', '.jsx', ".ts", ".tsx"],
     }
 };
+
+
+// ,
+// "plugins": [
+//     [
+//         "@dr.pogodin/babel-plugin-react-css-modules",
+//         {
+//             "filetypes": {
+//                 ".scss": {
+//                     "syntax": "postcss-scss"
+//                 }
+//             },
+//             "generateScopedName": "[local]--[hash:base64:5]"
+//         }
+//     ],
+//     "@babel/plugin-proposal-class-properties"
+// ]
